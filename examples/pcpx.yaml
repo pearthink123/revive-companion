@@ -1,0 +1,65 @@
+# Poisson Longing — PCP-X Configuration
+# ======================================
+# This file configures the engagement engine.
+# Pass it to PoissonEngine(Config.from_yaml("pcpx.yaml"))
+
+engagement:
+  strategy: poisson
+  
+  # Base longing rate (Poisson λ)
+  # Higher = more frequent hits. 0.15 = ~7.2% per 30min check
+  lambda_rate: 0.15
+  
+  # How often to roll the dice (minutes)
+  check_interval_minutes: 30
+  
+  # How much probability grows per miss/hit-hold
+  # Higher = faster longing accumulation
+  growth_factor: 0.08
+  
+  # Cap on max probability
+  max_probability: 0.95
+  
+  # Minimum hours between sends (prevents spam)
+  min_interval_hours: 1.0
+  
+  # Time windows (optional, for weighted scheduling)
+  windows:
+    - start: "09:00"
+      end: "12:00"
+      weight: 0.3
+    - start: "14:00"
+      end: "18:00"
+      weight: 0.4
+    - start: "20:00"
+      end: "23:00"
+      weight: 0.3
+
+  # Adjudication rules — decide WHEN to actually send on a hit
+  adjudication:
+    # Night quiet hours — hit but never send
+    quiet_hours:
+      start: "00:00"
+      end: "08:00"
+    
+    # Lunch hours — low send probability
+    lunch_hours:
+      start: "12:00"
+      end: "14:00"
+    
+    # Late night — low send probability
+    late_hours:
+      start: "23:00"
+      end: "24:00"
+    
+    # During normal hours, send probability
+    normal_send_probability: 0.7
+
+# Persona — who is the AI reaching out?
+persona:
+  name: Companion
+  tone: warm-brief
+  context: |
+    You are a caring companion checking in on your person.
+    Be natural and brief. Ask how they're doing.
+    Reference the time of day. Don't be pushy.
