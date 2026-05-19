@@ -180,7 +180,7 @@ poisson-love/
 | `poisson.py` | Poisson process | Random engagement timing | ✅ Done |
 || `control.py` | PID controller | Adaptive frequency (user feedback → adjust rate) | ✅ Done |
 || `info_gain.py` | Information theory | "Is this interaction worth it?" decision | ✅ Done |
-| `optimal_stop.py` | Optimal stopping | Best moment to intervene | 📋 Planned |
+|| `optimal_stop.py` | Optimal stopping | Best moment to intervene | ✅ Done |
 | `queueing.py` | Queueing theory | User's mental bandwidth management | 📋 Planned |
 | `sde.py` | Stochastic differential equations | User state trajectory prediction | 📋 Planned |
 
