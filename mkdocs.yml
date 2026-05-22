@@ -1,0 +1,63 @@
+site_name: revive-companion
+site_url: https://pearthink123.github.io/revive-companion
+site_description: Math models that make AI engagement feel human
+site_author: pear think
+
+repo_name: pearthink123/revive-companion
+repo_url: https://github.com/pearthink123/revive-companion
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: pink
+      accent: pink
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: pink
+      accent: pink
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - content.code.copy
+    - search.highlight
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - API Reference: api.md
+  - Configuration: configuration.md
+  - Architecture: architecture.md
+  - Integrations: integrations.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: true
+            show_root_heading: true
+            members_order: source
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/pearthink123/revive-companion
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/revive-companion/

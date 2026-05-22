@@ -1,0 +1,5 @@
+revive-companion
+streamlit>=1.20
+plotly>=5.0
+pandas>=1.5
+numpy>=1.23

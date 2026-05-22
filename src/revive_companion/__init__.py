@@ -29,6 +29,7 @@ from .engine import CompanionEngine, get_default_config
 from .info_gain import ConversationFlow, InformationGain, SilenceDuration
 from .love import LoveResult, PoissonLove
 from .optimal_stop import OptimalStop, ThresholdRule
+from .storage import BaseStateStore, JsonStateStore, SQLiteStateStore
 
 __version__ = "2.0.0"
 __all__ = [
@@ -57,4 +58,8 @@ __all__ = [
     # Control (optional)
     "Signal",
     "CombinedSignal",
+    # Storage
+    "BaseStateStore",
+    "JsonStateStore",
+    "SQLiteStateStore",
 ]
